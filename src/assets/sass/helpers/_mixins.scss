@@ -1,0 +1,31 @@
+@mixin displayFlexRow {
+    display: flex;
+    flex-direction: row;
+}
+@mixin displayFlex-SB{
+    display: flex;
+    justify-content: space-between;
+}
+@mixin displayFlex_C {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+	}
+	// Droite
+@mixin displayFlex_R {
+	display: flex;
+	align-items: center;
+	text-align: end;
+}
+	// Gauche
+@mixin displayFlex_L {
+	display: flex;
+	align-items: center;
+    text-align: start;
+}
+@mixin displayFlex_CC {
+	display: flex;
+	align-items: center;
+	text-align: start;
+	flex-direction: column;
+}

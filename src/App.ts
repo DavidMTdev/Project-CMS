@@ -5,6 +5,10 @@ import store from './store'
 import WithRender from '@/templates/app.html'
 
 import Header from '@/components/layouts/Header'
+import MenuProjet from '@/components/layouts/MenuProjet'
+import NewProjet from '@/components/layouts/NewProjet'
+
+import '@/assets/sass/style.scss'
 
 Vue.config.productionTip = false
 
@@ -13,7 +17,8 @@ Vue.config.productionTip = false
     router,
     store,
     components: {
-      Header
+      Header,
+      MenuProjet
   }
 })
 export default class App extends Vue {
