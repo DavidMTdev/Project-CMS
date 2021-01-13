@@ -3,8 +3,15 @@
         <div v-for='item in compo' :key='item.title' class="component-h1" draggable @dragstart='startDrag($event, item)'>
             {{ item.tag }}
         </div>
+        <div v-for='balise in dom' :key='balise.offsetTop'>
+            <p><{{balise.nodeName}}
+                <span v-if="balise.classList.length != 0" v-for='classlist in balise.classList' :key='classlist.nodeName'>class="{{classlist}}"</span>
+                <span v-if="balise.id != ''">id= {{balise.id}}</span>>
+                <p v-for='child in balise.children' :key='child.offsetTop' style="padding-left: 20px;"><{{child.nodeName}}></p>
+                </p>
+        </div>
     </div>
-    <div class="edit-preview" @drop='onDrop($event)' @dragover.prevent @dragenter.prevent>
+    <div ref="test" class="edit-preview" @drop='onDrop($event)' @dragover.prevent @dragenter.prevent>
         
     </div>
     <div class="edit-style">
