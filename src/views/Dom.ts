@@ -1,14 +1,18 @@
 export default class Dom{
     dom: Array<Element> = []
+    result: Array<Element> = []
 
     printDom(dom: any): Array<Element>{
-        for (let index = 0; index < dom.children.length; index++) {
-            this.dom.push(dom.children[index])
-        }
-        return this.dom
+        dom.children.forEach((element: any) => {
+            this.dom.push(element)
+        });
+
+        this.dom.forEach((element: any) => {
+            const el = element.outerHTML.split("><")
+            this.result.push(el)
+        });
+        
+        return this.result
     }
 
-    getDom(){
-        return this.dom
-    }
 }

@@ -29,9 +29,6 @@ export default class Test extends Vue {
         // event.dataTransfer.effectAllowed = 'move';
 
         this.element = item
-
-        console.log(this.element);
-
     }
 
     onDrop(event: any) {
@@ -44,6 +41,5 @@ export default class Test extends Vue {
         this.element = null;
         const dom =  new Dom();
         this.dom = dom.printDom(this.$refs.test);
-        console.log(this.dom)
     }
 }

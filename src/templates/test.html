@@ -3,13 +3,24 @@
         <div v-for='item in compo' :key='item.title' class="component-h1" draggable @dragstart='startDrag($event, item)'>
             {{ item.tag }}
         </div>
-        <div v-for='balise in dom' :key='balise.offsetTop'>
+        <div class="dom">
+            <div v-for='balise in dom' :key='balise.offsetTop'>
+                <p v-for='(value, index) in balise'>
+                    <span v-if='value[value.length - 1] == ">" && balise.length - 1 == 0'>{{value}}</span>
+                    <span v-else-if='index == 0'>{{value}}></span>
+                    <span style="padding-left: 20px;" v-else-if='balise.length - 1 != index'><{{value}}></span>
+                    <span v-else-if='balise.length - 1 == index'><{{value}}</span>
+                </p>
+            </div>
+        </div>
+        <!-- <div v-for='balise in dom' :key='balise.offsetTop'>
             <p><{{balise.nodeName}}
                 <span v-if="balise.classList.length != 0" v-for='classlist in balise.classList' :key='classlist.nodeName'>class="{{classlist}}"</span>
                 <span v-if="balise.id != ''">id= {{balise.id}}</span>>
                 <p v-for='child in balise.children' :key='child.offsetTop' style="padding-left: 20px;"><{{child.nodeName}}></p>
                 </p>
-        </div>
+            <p>{{balise.outerHTML}}</p>
+        </div> -->
     </div>
     <div ref="test" class="edit-preview" @drop='onDrop($event)' @dragover.prevent @dragenter.prevent>
         
