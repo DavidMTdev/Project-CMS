@@ -1,0 +1,49 @@
+@import './helpers/reset';
+@import './helpers/variables';
+@import './helpers/mixins';
+
+.verticalBarOptionTop-body_top{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    border-bottom: $blue solid 1px;
+    color: $claire;
+    font-size: 0.8em;
+}
+
+.verticalBarOptionTop-body_middle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // justify-content: space-evenly;
+    padding: 10px;
+    color: $claire;
+    font-size: 0.7em;
+    border-bottom: $blue solid 1px;
+}
+.verticalBarOptionTop-body_middle img{
+    margin-right: 5px;
+    height: 7px;
+}
+
+.verticalBarOptionTop-body_bottom{
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+}
+
+.body_bottom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    color: $claire;
+    font-size: 0.7em;
+}
+.body_bottom img{
+    background-color: $blue;
+    padding: 10px;
+    height: 15px;
+    border-radius: 15px;
+    margin-right: 10px;
+}
