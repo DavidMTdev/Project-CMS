@@ -1,0 +1,64 @@
+@import './helpers/reset';
+@import './helpers/variables';
+@import './helpers/mixins';
+
+.body_MenuProjet{
+    background-color: $ebony;
+    color: $claire;
+    width: 18%;
+    // height: 567px;
+    height: calc(100vh - 30px);
+}
+.MenuProjet_Top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    font-size: 0.5em;
+}
+.MenuProjet_top-container{
+    display: flex;
+    width: auto;
+    align-items: center;
+    margin: 10px 30px;
+}
+.MenuProjet_top-container p{
+    margin-left: 10px;
+}
+.MenuProjet_top-container img{
+    height: 17px;
+    width: 17px;
+}
+
+.MenuProjet_Middle{
+    height: 130px;
+    font-size: 0.5em;
+}
+.MenuProjet_middle-container{
+    display: flex;
+    align-items: center;
+    margin: 10px 30px;
+}
+.MenuProjet_middle-container h3{
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+}
+.MenuProjet_middle-container li{
+    margin-top: 20px;
+}
+.MenuProjet_middle-container img{
+    padding-right: 10px;
+    height: 17px;
+    width: 17px;
+}
+.MenuProjet_Low{
+    margin: 100px 0 10px 10px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.MenuProjet_Low img{
+    height: 17px;
+    width: 17px;
+}
