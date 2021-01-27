@@ -31,6 +31,35 @@ $bleu: #487ef3;
         height: 85vh;
         width: 100%;
         // border: 1px solid black;
+
+        [data-select='true']{
+            border: 1px solid #007bff;
+            padding: 0 50px;
+            margin: 0;
+            position: relative;
+
+            &:hover{
+                border: 1px dashed #ff7272;
+            }
+
+            .tools-menu{
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+        
+                display: flex;
+        
+                background-color: $bleu;
+        
+                .tools{
+                    padding: 2px 5px;
+                }
+            }
+        }
+
+        [data-height='100px']{
+            height: 100px;
+        }
     }
 
     .edit-style{
@@ -45,22 +74,6 @@ $bleu: #487ef3;
         height: auto;
     }
 
-    .tools-menu{
-        position: fixed;
-        left: 50%;
-        transform: translateX(-50%);
-
-        display: flex;
-
-        background-color: $bleu;
-
-        .tools{
-            padding: 2px 5px;
-        }
-    }
-
-    .tools-line{
-        border: 1px dashed #ff7272;
-    }
+    
 
 }
