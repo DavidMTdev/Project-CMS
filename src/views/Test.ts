@@ -40,6 +40,7 @@ export default class Test extends Vue {
 
         this.element = null;
         const dom =  new Dom();
-        this.dom = dom.printDom(this.$refs.test);
+        // this.dom = dom.printDom(this.$refs.test);
+        dom.printDom(this.$refs.test, this.$refs.dom)
     }
 }
