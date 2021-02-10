@@ -2,9 +2,9 @@ import Vue, { CreateElement } from 'vue';
 export default class Component extends Vue {
     tag: string;
     content: string | undefined;
-    className: string | undefined;
+    className: string | null;
 
-    constructor(tag: string, content?: string, className?: string) {
+    constructor(tag: string, className: string | null, content?: string) {
         super();
         this.tag = tag;
         this.content = content;
@@ -12,23 +12,27 @@ export default class Component extends Vue {
     }
 
     createElement(event: DragEvent | any): void {
-        // const oldTarget: Element | null = document.querySelector(`[data-select="true"]`);
+        const oldTarget: Element | null = document.querySelector(`[data-select="true"]`);
+        const editPreview: Element | null = document.querySelector(".edit-preview");
 
-        // oldTarget?.removeAttribute("data-select");
+        oldTarget?.removeAttribute("data-select");
 
-        const target: Element | any = event.target
+        const target: Element | any = event.target;
 
-        // event.target.innerHTML += `<${this.tag} data-select="true">${this.content}</${this.tag}>`
         target.innerHTML += `<${this.tag} class="${this.className}" data-select="true">${this.content}</${this.tag}>`
-        target.removeAttribute("data-height");
-        target.removeAttribute("data-select");
+        target?.removeAttribute("data-height");
+        target?.removeAttribute("data-select");
 
         let newTarget: Element | null = document.querySelector(`[data-select="true"]`);
 
-        if (this.className == undefined) {
+        if (this.className == null) {
             // targetEdit?.classList.add(this.className);
             newTarget?.removeAttribute("class");
         }
+        
+        // if (this.tag == "div") {
+        //     newTarget?.setAttribute("data-height", "100px")
+        // }  
 
         if (this.content == "") {
             newTarget?.setAttribute("data-height", "100px")
@@ -38,12 +42,12 @@ export default class Component extends Vue {
             newTarget = document.querySelector(`[data-select="true"]`);
 
             if (newTarget != null) {
-                let toolsMenu: Element | null = null;
-    
+                let toolsMenu = document.querySelector(".tools-menu");
+
+                console.log(toolsMenu);
+                
+
                 newTarget.addEventListener("mouseenter", (e) => {
-    
-                    console.log(newTarget);
-    
                     if (toolsMenu == null) {
                         newTarget.innerHTML += `<div class="tools-menu">
                     <div class="tools edit">e</div>
