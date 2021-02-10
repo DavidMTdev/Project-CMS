@@ -1,14 +1,12 @@
 <div class="test">
     <div class="menu-components">
         <div v-for='item in compo' :key='item.title' class="component" draggable @dragstart='startDrag($event, item)'>
-            {{ item.tag }}
+            {{ item.tagName }}
         </div>
         <div ref="dom" class="dom">
-        
         </div>
     </div>
     <div ref="test" class="edit-preview" @drop='onDrop($event)' @dragover.prevent @dragenter.prevent>
-        
     </div>
     <div class="edit-style">
     </div>
