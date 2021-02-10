@@ -8,16 +8,16 @@ export default class Dom{
             this.printElement(element, target, 0)
 
             if(element.children.length != 0){
-                this.allChildren(element, true) .forEach(element => {
+                this.allChildren(element, true).forEach(element => {
                     this.printElement(element, target, 1)
                     if(element.children.length != 0){
-                        this.allChildren(element, true) .forEach(element => {
+                        this.allChildren(element, true).forEach(element => {
                             this.printElement(element, target, 2)
                             if(element.children.length != 0){
-                                this.allChildren(element, true) .forEach(element => {
+                                this.allChildren(element, true).forEach(element => {
                                     this.printElement(element, target, 3)
                                     if(element.children.length != 0){
-                                        this.allChildren(element, true) .forEach(element => {
+                                        this.allChildren(element, true).forEach(element => {
                                             this.printElement(element, target, 4)
                                         })
                                     }
@@ -32,21 +32,22 @@ export default class Dom{
 
     printElement(element: any, target: any, children: number){
         // Fonction qui affiche un element du dom avec sa/ses classes et son id si il en a
-        for (let i = 0; i < children; i++) {
-            target.innerHTML += "&nbsp;&nbsp;&nbsp;"
+        const newElement = document.createElement("div")
+        newElement.classList.add(`dom-indent-${children}`)
+
+        newElement.innerHTML += `<span class="tagName">${element.localName}</span>`
+
+        if(element.id != ""){
+            newElement.innerHTML += `<span class="idName">#${element.id}</span>`
         }
-        target.innerHTML += element.localName
 
         if (element.classList != []) {
-            element.classList.forEach((value: any) => {
-                target.innerHTML += "." + value 
+            element.classList.forEach(async (className: any) => {
+                newElement.innerHTML += `<span class="className">.${className}</span>`
             });
         }
 
-        if(element.id != ""){
-            target.innerHTML += " #" + element.id
-        }
-        target.innerHTML += "<br>"
+        target.appendChild(newElement)
     }
 
     
