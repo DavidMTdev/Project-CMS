@@ -4,5 +4,14 @@
 
 .body1{
     display: flex;
+    justify-content: space-between;
+}
+.body-left{
+    background-color: $sombre;
+    display: flex;
     flex-direction: row;
+}
+.body-right{
+    width: 20%;
+    background-color: $sombre;
 }
