@@ -1,6 +1,6 @@
 <div class="test">
     <div class="menu-components">
-        <div v-for='item in compo' :key='item.title' class="component-h1" draggable @dragstart='startDrag($event, item)'>
+        <div v-for='item in compo' :key='item.title' class="component" draggable @dragstart='startDrag($event, item)'>
             {{ item.tag }}
         </div>
         <div ref="dom" class="dom">
