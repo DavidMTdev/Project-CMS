@@ -24,6 +24,14 @@ $bleu: #487ef3;
             background-color: whitesmoke;
             cursor: pointer;
         }
+
+        .dom{
+            @for $i from 0 to 5 {
+                .dom-indent-#{$i}{
+                    margin-left: $i * 10px
+                }
+            }
+        }
     }
 
     .edit-preview{
@@ -35,6 +43,10 @@ $bleu: #487ef3;
         div[data-select='true']{
             padding: 0 50px;
             margin: 0;
+        }
+
+        :focus{
+            outline: none;
         }
 
       

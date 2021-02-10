@@ -1,86 +1,100 @@
-import Vue, { CreateElement } from 'vue';
+import Vue from 'vue';
 export default class Component extends Vue {
-    tag: string;
+    tagName: string;
     content: string | undefined;
     className: string | null;
+    idName: string | null;
+    element!: Element;
 
-    constructor(tag: string, className: string | null, content?: string) {
+    constructor(tagName: string, idName: string | null, className: string | null, content?: string) {
         super();
-        this.tag = tag;
+        this.tagName = tagName;
         this.content = content;
         this.className = className;
+        this.idName = idName;
     }
 
-    createElement(event: DragEvent | any): void {
-        const oldTarget: Element | null = document.querySelector(`[data-select="true"]`);
-        const editPreview: Element | null = document.querySelector(".edit-preview");
+    createElement(event: DragEvent): void {
+        const target: any = event.target;
 
+        console.log(event);
+        
+        
+        const oldTarget: Element | null = document.querySelector(`[data-select="true"]`);
         oldTarget?.removeAttribute("data-select");
 
-        const target: Element | any = event.target;
+        this.element = document.createElement(`${this.tagName}`)
+        this.element.setAttribute("data-select", "true")
+        // this.element.setAttribute("contenteditable", "true")
 
-        target.innerHTML += `<${this.tag} class="${this.className}" data-select="true">${this.content}</${this.tag}>`
-        target?.removeAttribute("data-height");
-        target?.removeAttribute("data-select");
-
-        let newTarget: Element | null = document.querySelector(`[data-select="true"]`);
-
-        if (this.className == null) {
-            // targetEdit?.classList.add(this.className);
-            newTarget?.removeAttribute("class");
+        if (this.idName != null) {
+            this.element.setAttribute("id", `${this.idName}`);
         }
-        
-        // if (this.tag == "div") {
-        //     newTarget?.setAttribute("data-height", "100px")
-        // }  
+
+        if (this.className != null) {
+            this.element.setAttribute("class", `${this.className}`);
+        }
 
         if (this.content == "") {
-            newTarget?.setAttribute("data-height", "100px")
-        }  
+            this.element.setAttribute("data-height", "100px")
+        } else {
+            this.element.innerHTML += this.content
+        }
 
-        target.addEventListener("mouseenter", () => {
-            newTarget = document.querySelector(`[data-select="true"]`);
+        target.appendChild(this.element)
 
-            if (newTarget != null) {
-                let toolsMenu = document.querySelector(".tools-menu");
+        // exemple
+        // insertAdjacentElement()
+        // card.addEventListener('dblclick', function (e) {
+        //     card.classList.toggle('large');
+        //   });
+        // input.toggleAttribute("readonly");
+        
+    }
 
-                console.log(toolsMenu);
+    // showMenuTools(target: Element, newTarget: Element): void{
+    //     target.addEventListener("mouseenter", () => {
+    //         newTarget = document.querySelector(`[data-select="true"]`);
+
+    //         if (newTarget != null) {
+    //             let toolsMenu = document.querySelector(".tools-menu");
+
+    //             console.log(toolsMenu);
                 
 
-                newTarget.addEventListener("mouseenter", (e) => {
-                    if (toolsMenu == null) {
-                        newTarget.innerHTML += `<div class="tools-menu">
-                    <div class="tools edit">e</div>
-                    <div class="tools drag">d</div>
-                    <div class="tools remove">r</div>
-                    </div>`
-                    }
+    //             newTarget.addEventListener("mouseenter", (e) => {
+    //                 if (toolsMenu == null && newTarget != null) {
+    //                     newTarget.innerHTML += `<div class="tools-menu">
+    //                 <div class="tools edit">e</div>
+    //                 <div class="tools drag">d</div>
+    //                 <div class="tools remove">r</div>
+    //                 </div>`
+    //                 }
     
-                    toolsMenu = document.querySelector(".tools-menu")
+    //                 toolsMenu = document.querySelector(".tools-menu")
     
-                    if (toolsMenu != null) {
-                        const dragTool: Element | null = document.querySelector(".tools-menu .tools.drag")
+    //                 if (toolsMenu != null && newTarget != null) {
+    //                     const dragTool: Element | null = document.querySelector(".tools-menu .tools.drag")
             
-                        dragTool?.addEventListener("mouseover", (e) => {
-                            newTarget.setAttribute("draggable", "true");
-                        })
+    //                     dragTool?.addEventListener("mouseover", (e) => {
+    //                         newTarget?.setAttribute("draggable", "true");
+    //                     })
             
-                        dragTool?.addEventListener("mouseleave", (e) => {
-                            newTarget.removeAttribute("draggable");
-                        })
-                    }
+    //                     dragTool?.addEventListener("mouseleave", (e) => {
+    //                         newTarget?.removeAttribute("draggable");
+    //                     })
+    //                 }
         
-                })
+    //             })
     
-                newTarget.addEventListener("mouseleave", (e) => {
-                    toolsMenu = document.querySelector(".tools-menu")
+    //             newTarget.addEventListener("mouseleave", (e) => {
+    //                 toolsMenu = document.querySelector(".tools-menu")
         
-                    toolsMenu?.remove()
-                })
-            }
-        })
+    //                 toolsMenu?.remove()
+    //             })
+    //         }
+    //     })
+    // }    
 
-        
- 
-    }
 }
+    
