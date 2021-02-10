@@ -3,8 +3,11 @@
         <div v-for='item in compo' :key='item.title' class="component" draggable @dragstart='startDrag($event, item)'>
             {{ item.tag }}
         </div>
+        <div ref="dom" class="dom">
+        
+        </div>
     </div>
-    <div class="edit-preview" @drop='onDrop($event)' @dragover.prevent @dragenter.prevent>
+    <div ref="test" class="edit-preview" @drop='onDrop($event)' @dragover.prevent @dragenter.prevent>
         
     </div>
     <div class="edit-style">
