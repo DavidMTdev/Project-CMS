@@ -1,9 +1,13 @@
 export default class Dom {
     nodes: Array<any> = []
 
-    printDom(body: any, target: any) {
+    updateDom(body: any, target: any) {
         this.allChildren(body, false)
+        
         target.innerHTML = ""
+        console.log(this.nodes);
+        
+
         this.nodes.forEach(element => {
             this.printElement(element, target, 0)
 
@@ -37,6 +41,7 @@ export default class Dom {
         newElement.setAttribute("data-id", element.getAttribute("data-id"))
 
         const imageArrow = document.createElement("img")
+        imageArrow.classList.add('img-arrow')
         imageArrow.src = require('@/assets/icon/arrow.svg')
         newElement.appendChild(imageArrow)
 
@@ -61,6 +66,7 @@ export default class Dom {
 
     allChildren(noeud: any, isChild: boolean) {
         // Fonction qui recupere tout les enfants d'un element du dom
+        this.nodes = []
         const child = []
         if (typeof (noeud) !== 'object') return [];
         let n = noeud.firstChild;
