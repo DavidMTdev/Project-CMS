@@ -13,7 +13,23 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    
+    .Add{
 
+        display: flex;
+        flex-direction: row;
+        margin-right: 32px;
+
+        .Add_NewText{
+
+            margin-right: 8px;
+        }
+
+        .Add_icone{
+
+            width: 24px;
+        }
+    }
 
     p{
         margin-left: 32px;
@@ -41,29 +57,39 @@
     
 }
 
-.h1{
+.Title{
+
     font-size: 24px;
     padding-top: 32px;
-    padding-bottom: 48px;
+    padding-bottom: 32px;
     margin-left: 32px;
 
+    hr{
+
+        margin-top: 24px;
+        width: 98%;
+    }
 }
+
+
 
 .container-grid{
     display: flex;
     flex-direction: row;
    flex-wrap: wrap;
     width: 100%;
-    z-index: 10;
+    
 
 .header_box{
     
-    background-color: gray;
-    margin-left: 16px;
+    background-color: #F6F6F6;
+    margin: 16px 32px;
     height: 287px;
     width: 265px;
     border-radius: 5px;
-    margin-bottom: 24px;
+    border: 1px solid #E4E4E4;
+    box-sizing: border-box;
+    box-shadow: 0px 16px 40px rgba(154, 170, 207, 0.2);
     
 
 
@@ -83,7 +109,10 @@
         height: 40px;
         z-index: 1;
         position: absolute;
-        top: 50px;
+        padding: 0;
+        top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
        
 
 
