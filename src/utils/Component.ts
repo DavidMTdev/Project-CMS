@@ -5,6 +5,7 @@ export default class Component extends Vue {
     className: string | null;
     idName: string | null;
     element!: Element;
+    id!: number;
 
     constructor(tagName: string, idName: string | null, className: string | null, content?: string) {
         super();
@@ -14,12 +15,9 @@ export default class Component extends Vue {
         this.idName = idName;
     }
 
-    createElement(event: DragEvent): void {
+    createElement(event: DragEvent, id: number): void {
         const target: any = event.target;
 
-        console.log(event);
-        
-        
         const oldTarget: Element | null = document.querySelector(`[data-select="true"]`);
         // oldTarget?.removeAttribute("data-select");
         oldTarget?.setAttribute("data-select", "false");
@@ -27,7 +25,7 @@ export default class Component extends Vue {
 
         this.element = document.createElement(`${this.tagName}`)
         this.element.setAttribute("data-select", "true")
-        this.element.setAttribute("data-id", "1")
+        this.element.setAttribute("data-id", id.toString())
         // this.element.setAttribute("contenteditable", "true")
 
         if (this.idName != null) {
@@ -38,13 +36,18 @@ export default class Component extends Vue {
             this.element.setAttribute("class", `${this.className}`);
         }
 
-        if (this.content == "") {
+        if (this.content == undefined) {
             this.element.setAttribute("data-height", "100px")
         } else {
             this.element.innerHTML += this.content
         }
 
         target.appendChild(this.element)
+
+        this.element.addEventListener('dblclick', (e) => {
+            console.log(this.element.getAttribute("data-select"));
+            this.element.setAttribute("contenteditable", "true");
+        });
 
         // exemple
         // insertAdjacentElement()
