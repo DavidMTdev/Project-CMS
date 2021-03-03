@@ -35,6 +35,10 @@ export default class Dom{
         const newElement = document.createElement("div")
         newElement.classList.add(`dom-indent-${children}`)
 
+        const imageArrow = document.createElement("img")
+        imageArrow.setAttribute('src', 'http://www.testtrackinglink.com');
+        newElement.appendChild(imageArrow)
+
         newElement.innerHTML += `<span class="tagName">${element.localName}</span>`
 
         if(element.id != ""){
