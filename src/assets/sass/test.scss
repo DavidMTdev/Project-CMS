@@ -28,8 +28,18 @@ $bleu: #487ef3;
         .dom{
             @for $i from 0 to 5 {
                 .dom-indent-#{$i}{
-                    margin-left: $i * 10px
+                    margin-left: $i * 10px;
+                    padding: 0 5px;
+                    cursor: pointer;
+                    display: flex;
+                    &:hover{
+                        background-color: rgb(0, 0, 88);
+                        color: white;
+                    }
                 }
+            }
+            span{
+                margin-left: 5px;
             }
         }
     }

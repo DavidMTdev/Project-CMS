@@ -32,9 +32,10 @@ export default class Test extends Vue {
     onDrop(event: DragEvent) { 
         this.element.createElement(event, this.count); 
         
-        this.count ++;
         const dom =  new Dom();
         // this.dom = dom.printDom(this.$refs.test);
         dom.printDom(this.$refs.test, this.$refs.dom)
+        dom.elementDomClick()
+        this.count ++;
   }
 }
