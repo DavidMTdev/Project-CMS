@@ -1,0 +1,10 @@
+@import './helpers/reset';
+@import './helpers/variables';
+@import './helpers/mixins';
+
+.body2{
+    background-color: $sombre;
+    display: flex;
+    flex-direction: column;
+    border: $blue solid 1px;
+}

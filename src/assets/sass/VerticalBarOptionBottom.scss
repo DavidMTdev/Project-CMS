@@ -1,0 +1,76 @@
+@import './helpers/reset';
+@import './helpers/variables';
+@import './helpers/mixins';
+
+.verticalBarOptionBottom-body{
+    display: flex;
+    flex-direction: column;
+}
+.verticalBarOptionBottom-body p{
+    font-size: 0.55em;
+    color: $claire;
+    padding: 2px;
+}
+.verticalBarOptionBottom-body img{
+    height: 7px;
+    padding-right: 5px;
+}
+
+.verticalBarOption1{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    align-items: center;
+    border: $blue solid 1px;
+    border-right: none;
+    border-left: none;
+    justify-content: space-between;
+
+}
+.verticalBarOption2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    border-bottom: $blue solid 1px;
+}
+.verticalBarOption3{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    padding-left: 20px;
+    border-bottom: $blue solid 1px;
+}
+.verticalBarOption4{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    padding-left: 20px;
+    border-bottom: $blue solid 1px;
+}
+.verticalBarOption5{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    padding-left: 30px;
+    border-bottom: $blue solid 1px;
+}
+.verticalBarOption6{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    padding-left: 30px;
+    border-bottom: $blue solid 1px;
+}
+.verticalBarOption7{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    padding-left: 30px;
+    border-bottom: $blue solid 1px;
+}
