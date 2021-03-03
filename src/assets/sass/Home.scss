@@ -1,0 +1,9 @@
+@import './helpers/reset';
+@import './helpers/variables';
+@import './helpers/mixins';
+
+.Body_Home{
+
+    display: flex;  
+    flex-direction: row;
+}

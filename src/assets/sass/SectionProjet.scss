@@ -1,0 +1,93 @@
+@import './helpers/reset';
+@import './helpers/variables';
+@import './helpers/mixins';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+.contaire-Body{
+    width: 100%;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+
+    p{
+        margin-left: 32px;
+        margin-top: 5px;
+       
+    }
+    
+    span{
+
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    padding-left: 50px;
+    color: gray;
+
+    }
+
+
+}
+
+.navbar1{
+    display: flex;
+    flex-direction: row;
+
+    
+}
+
+.h1{
+    font-size: 24px;
+    padding-top: 32px;
+    padding-bottom: 48px;
+    margin-left: 32px;
+
+}
+
+.container-grid{
+    display: flex;
+    flex-direction: row;
+   flex-wrap: wrap;
+    width: 100%;
+    z-index: 10;
+
+.header_box{
+    
+    background-color: gray;
+    margin-left: 16px;
+    height: 287px;
+    width: 265px;
+    border-radius: 5px;
+    margin-bottom: 24px;
+    
+
+
+    p{
+        padding: 16px ;
+    }
+
+    img{
+        height: 202px;
+        width: 233px;
+        padding-left: 16px;
+    }
+
+    .header_box-icone{
+
+        width: 40px;
+        height: 40px;
+        z-index: 1;
+        position: absolute;
+        top: 50px;
+       
+
+
+    }
+}
+
+}
