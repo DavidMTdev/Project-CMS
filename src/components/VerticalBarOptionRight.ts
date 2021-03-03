@@ -4,4 +4,10 @@ import WithRender from '@/components/templates/VerticalBarOptionRight.html'
 
 @WithRender
 @Component
-export default class VerticalBarOptionTop extends Vue{}
+export default class VerticalBarOptionTop extends Vue{
+    showBackground = false;
+
+    openBackground(){
+        this.showBackground = true
+    }
+}

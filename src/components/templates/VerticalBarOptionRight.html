@@ -22,9 +22,10 @@
 
     </div>
 
-    <div class="container_content-3">
+    <div @click="openBackground" class="container_content-3">
         <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
         <p>Background</p>
+        <test v-if="showBackground" />
     </div>
     <div class="container_content-3">
         <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
