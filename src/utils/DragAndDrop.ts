@@ -1,5 +1,5 @@
 import Vue from 'vue';
-export default class Component extends Vue {
+export default class DragAndDrop extends Vue {
     tagName: string;
     content: string | undefined;
     className: string | null;
@@ -23,9 +23,9 @@ export default class Component extends Vue {
         oldTarget?.setAttribute("data-select", "false");
 
 
-        this.element = document.createElement(`${this.tagName}`)
-        this.element.setAttribute("data-select", "true")
-        this.element.setAttribute("data-id", id.toString())
+        this.element = document.createElement(`${this.tagName}`);
+        this.element.setAttribute("data-select", "true");
+        this.element.setAttribute("data-id", id.toString());
         // this.element.setAttribute("contenteditable", "true")
 
         if (this.idName != null) {
@@ -37,18 +37,15 @@ export default class Component extends Vue {
         }
 
         if (this.content == undefined) {
-            this.element.setAttribute("data-height", "100px")
+            this.element.setAttribute("data-height", "100px");
         } else {
-            this.element.innerHTML += this.content
+            this.element.innerHTML += this.content;
         }
 
-        target.appendChild(this.element)
+        target.appendChild(this.element);
 
-        this.element.addEventListener('dblclick', (e) => {
-            console.log(this.element.getAttribute("data-select"));
-            this.element.setAttribute("contenteditable", "true");
-        });
-
+        this.editableElement();
+        
         // exemple
         // insertAdjacentElement()
         // card.addEventListener('dblclick', function (e) {
@@ -56,6 +53,40 @@ export default class Component extends Vue {
         //   });
         // input.toggleAttribute("readonly");
         
+    }
+
+    editableElement(){
+        const tagNameEditable = ['h1', 'h2', 'h3', 'h4','h5','p', 'a', 'button', 'label', 'li', 'option'];
+
+        this.element.addEventListener('dblclick', (e) => {
+            const target: any = e.target;
+            console.log(e.target);
+            
+            if (target?.getAttribute("data-select") == "false") {
+                const oldTarget: Element | null = document.querySelector(`[data-select="true"]`);
+
+                oldTarget?.setAttribute("data-select", "false");
+                target?.setAttribute("data-select", "true");            
+            }  
+        });
+
+        this.element.addEventListener('click', (e) => {
+            const target: any = e.target;
+
+            if (target?.getAttribute("data-select") == "true") {
+
+                if (tagNameEditable.includes(this.tagName)) {
+                    console.log(target?.getAttribute("data-select"));
+                    target?.setAttribute("contenteditable", "true");    
+                }
+            }
+        });
+        
+        window.addEventListener('dblclick', () => {
+            if (this.element.getAttribute("data-select") == "false"){
+                this.element.removeAttribute("contenteditable");
+            }
+        })
     }
 
     // showMenuTools(target: Element, newTarget: Element): void{
