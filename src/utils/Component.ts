@@ -21,10 +21,13 @@ export default class Component extends Vue {
         
         
         const oldTarget: Element | null = document.querySelector(`[data-select="true"]`);
-        oldTarget?.removeAttribute("data-select");
+        // oldTarget?.removeAttribute("data-select");
+        oldTarget?.setAttribute("data-select", "false");
+
 
         this.element = document.createElement(`${this.tagName}`)
         this.element.setAttribute("data-select", "true")
+        this.element.setAttribute("data-id", "1")
         // this.element.setAttribute("contenteditable", "true")
 
         if (this.idName != null) {
