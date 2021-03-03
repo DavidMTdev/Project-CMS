@@ -20,6 +20,7 @@
     color: $claire;
     font-size: 0.7em;
     border-bottom: $blue solid 1px;
+    cursor: pointer;
 }
 .verticalBarOptionTop-body_middle img{
     margin-right: 5px;
@@ -39,6 +40,11 @@
     padding: 10px;
     color: $claire;
     font-size: 0.7em;
+    cursor: pointer;
+}
+.body_bottom:hover{
+    background-color: $ebony;
+    transition: 1s;
 }
 .body_bottom img{
     background-color: $blue;
