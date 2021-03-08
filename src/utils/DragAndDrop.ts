@@ -44,7 +44,7 @@ export default class DragAndDrop extends Vue {
 
         target.appendChild(this.element);
 
-        this.editableElement();
+        // this.editableElement();
         
         // exemple
         // insertAdjacentElement()
