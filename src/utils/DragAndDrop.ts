@@ -1,5 +1,4 @@
-import Vue from 'vue';
-export default class DragAndDrop extends Vue {
+export default class DragAndDrop {
     tagName: string;
     content: string | undefined;
     className: string | null;
@@ -8,7 +7,6 @@ export default class DragAndDrop extends Vue {
     id!: number;
 
     constructor(tagName: string, idName: string | null, className: string | null, content?: string) {
-        super();
         this.tagName = tagName;
         this.content = content;
         this.className = className;
