@@ -40,8 +40,138 @@
     </div>
     <div ref="test" class="edit-preview" @drop='onDrop($event)' @dragover.prevent @dragenter.prevent>
     </div>
+
     <div class="body-right">
-        <VerticalBarOptionRight/>
+        <!-- <VerticalBarOptionRight/> -->
+
+        <div class="main_container">
+
+            <div class="container_content-1">
+                <img class="container_content-1__icon" :src="require(`@/assets/icon/burger24.png`)"/>
+                <h3>Edit section</h3>
+                <img class="container_content-1__icon" :src="require(`@/assets/icon/interfaceUser24.png`)"/>
+            </div>
+        
+            <div class="container_content-2">
+                <div class="content_2-1">
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/layout24.png`)"/>
+                    <p>Layout</p>
+                </div>
+                <div class="content_2-2">
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/style24.png`)"/>
+                    <p>Style</p>
+                </div>
+                <div class="content_2-3">
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/settings.png`)"/>
+                    <p>Advanced</p>
+                </div>
+        
+            </div>
+        
+            <div @click="openBackground" class="container_content-3">
+                <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
+                <p>Background</p>
+            </div>
+            <div class="container_content-3-1" v-if="showBackground">
+                <div class="container_content-3-1--container">
+                    <div class="container_content-3-1--content">
+                        <label for="head">text</label>
+                        <input type="color" name="head"
+                        value="#e66465">
+                    </div>
+                    <div class="container_content-3-1--content">
+                        <label for="body">background</label>
+                        <input type="color" id="body" name="body"
+                        value="#f6b73c">
+                    </div>
+                    <div class="container_content-3-1--content">
+                        <label for="body">border</label>
+                        <input type="color" id="body" name="body"
+                        value="#FFFFFF">
+                    </div>
+                </div>
+            </div>
+            <div class="container_content-3">
+                <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
+                <p>Background Overlay</p>
+            </div>
+            <div class="container_content-3" @click="contentBorder">
+                <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
+                <p>Border</p>
+            </div>
+            <div class="container_content-3-2">
+                <div class="container_content-3-2--container" v-if="showBorder">
+                    <div class="container_content-3-2--content">
+                        <span>Top</span>
+                        <input type="number" name="top" min="0" max="100" value="50">
+                    </div>
+                    <div class="container_content-3-2--content">
+                        <span>Right</span>
+                        <input type="number" name="right" min="0" max="100" value="50">
+                    </div>
+                    <div class="container_content-3-2--content">
+                        <span>Bottom</span>
+                        <input type="number" name="bottom" min="0" max="100" value="50">
+                    </div>
+                    <div class="container_content-3-2--content">
+                        <span>Left</span>
+                        <input type="number" name="left" min="0" max="100" value="50">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="container_content-3" @click="content4V">
+                <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle.png`)"/>
+                <p>Shape Divider</p>
+            </div>
+            
+            <div v-if="showcontent4V" class="container_content-4">
+                <div class="container_4-1">
+                    <div class="content_4-1">
+                        <p>Top</p>
+                    </div>
+                    <div class="content_4-2">
+                        <p>Bottom</p>
+                    </div>
+                </div>
+                <div class="container_4-2">
+                    <p>Color</p>
+                    <div class="container_4-2--color"></div>
+                </div>
+            </div>
+        
+            <div class="container_content-5" v-if="showcontent4V">
+                <div class="content_5-1">
+                    <div class="content_5-1--t">
+                        <p>Width</p>
+                    </div>
+                    <div class="content_5-1--c">
+                        <div class="line_width">
+                            <input id="slider" type="range" :min="min" :max="max" v-model="value" @change="bar($event)">
+                        </div>
+                        <div class="nb1">
+                            <p>{{value}}</p>
+                        </div>
+                    </div>
+        
+                </div>
+        
+                <div class="content_5-2">
+                    <div class="content_5-2--t">
+                        <p>Height</p>
+                    </div>
+                    <div class="content_5-2--c">
+                        <div class="line_height">
+                            <input id="slider" type="range" :min="min" :max="max" v-model="value2" @change="bar($event)">
+                        </div>
+                        <div class="nb2">
+                            <p>{{value2}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
     
  </div>
