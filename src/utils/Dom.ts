@@ -86,7 +86,7 @@ export default class Dom {
     }
 
     elementDomClick() {
-        const dom = document.querySelector(".dom")
+        const dom = document.querySelector(".dom-preview")
 
         dom?.childNodes.forEach(element => {
             element.addEventListener('click', (event: any) => {
