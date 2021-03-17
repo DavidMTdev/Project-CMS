@@ -14,13 +14,13 @@
     flex-direction: column;
     justify-content: center;
     height: auto;
-    font-size: 0.5em;
+    font-size: 1rem;
 }
 .MenuProjet_top-container{
     display: flex;
     width: auto;
     align-items: center;
-    margin: 10px 30px;
+    margin : 24px 32px;
 }
 .MenuProjet_top-container p{
     margin-left: 10px;
@@ -32,16 +32,16 @@
 
 .MenuProjet_Middle{
     height: 130px;
-    font-size: 0.5em;
+    font-size: 1rem;
 }
 .MenuProjet_middle-container{
     display: flex;
     align-items: center;
-    margin: 10px 30px;
+    margin: 24px 32px;
 }
 .MenuProjet_middle-container h3{
     margin: 0 0 10px 0;
-    font-size: 1.5em;
+    font-size: 1rem;
 }
 .MenuProjet_middle-container li{
     margin-top: 20px;
