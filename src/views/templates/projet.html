@@ -38,6 +38,7 @@
              </div>
         </div>
     </div>
+
     <div ref="test" class="edit-preview" @drop='onDrop($event)' @dragover.prevent @dragenter.prevent>
     </div>
 
@@ -76,7 +77,7 @@
                 <div class="container_content-3-1--container">
                     <div class="container_content-3-1--content">
                         <label for="head">text</label>
-                        <input type="color" name="head" value="#e66465">
+                        <input type="color" name="head" v-model="style.color" @change='edit.changeColor($event)'>
                     </div>
                     <div class="container_content-3-1--content">
                         <label for="body">background</label>
