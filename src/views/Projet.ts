@@ -20,9 +20,19 @@ export default class Projet extends Vue {
     compo: Array<DragAndDrop> = [];
     element!: DragAndDrop;
     count!: number;
-    dom!: Dom
+    dom!: Dom;
 
-    showBodyBottom = false
+    showBodyBottom = false;
+
+    showBackground = true;
+    showcontent4V = false;
+    showBorder = false;
+
+    min = 0;
+    max = 100;
+    step = 1;
+    value = 50;
+    value2 = 50;
 
     mounted() {
         this.dom = new Dom();
@@ -52,6 +62,16 @@ export default class Projet extends Vue {
 
     openBodyBottom() {
         this.showBodyBottom = !this.showBodyBottom
+    }
+
+    openBackground(){
+        this.showBackground = !this.showBackground
+    }
+    content4V(){
+        this.showcontent4V = !this.showcontent4V
+    }
+    contentBorder(){
+        this.showBorder = !this.showBorder
     }
 
 }
