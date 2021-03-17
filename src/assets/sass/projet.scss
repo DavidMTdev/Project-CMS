@@ -10,12 +10,13 @@
     background-color: $sombre;
     display: flex;
     flex-direction: row;
+    width: 40%;
 }
 .body-left-2{
-    width: 300px;
+    width: 100%;
 }
 .body-right{
-    width: 15%;
+    width: 30%;
     background-color: $sombre;
 }
 
