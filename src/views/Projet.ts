@@ -2,7 +2,6 @@ import { Component, Vue } from 'vue-property-decorator';
 import WithRender from '@/views/templates/projet.html'
 
 import leftVerticalBar from '@/components/LeftVerticalBar'
-import VerticalBarOption from '@/components/VerticalBarOption'
 import VerticalBarOptionRight from '@/components/VerticalBarOptionRight'
 
 import Dom from '@/utils/Dom'
@@ -14,7 +13,6 @@ Vue.config.productionTip = false
 @Component({
     components: {
         leftVerticalBar,
-        VerticalBarOption,
         VerticalBarOptionRight
     }
 })
