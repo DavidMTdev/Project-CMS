@@ -6,8 +6,94 @@
             <leftVerticalBar/>
         </div>
         <div class="body-left-2">
-            <VerticalBarOption/>
+
+            <div class="body2">
+
+                <div class="verticalBarOptionTop-body">
+                    <div class="verticalBarOptionTop-body_top">
+                        <h3>Components</h3>
+                    </div>
+                    <div class="verticalBarOptionTop-body_middle" @click="openBodyBottom">
+                        <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/triangle.png`)"/>
+                        <p>ESSENTIALS</p>
+                    </div>
+                    <div class="verticalBarOptionTop-body_bottom" v-if="showBodyBottom">
+                        <div class="body_bottom" v-for='item in compo' :key='item.title' draggable @dragstart='startDrag($event, item)'>
+                            <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/button.png`)"/>
+                            <p>{{ item.tagName }}</p>
+                        </div>
+                        <!-- <div class="body_bottom">
+                            <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/label.png`)"/>
+                            <p>Label</p>
+                        </div>
+                        <div class="body_bottom">
+                            <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/image.png`)"/>
+                            <p>Image</p>
+                        </div>
+                        <div class="body_bottom">
+                            <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/slider.png`)"/>
+                            <p>Slider</p>
+                        </div>
+                        <div class="body_bottom">
+                            <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/switch.png`)"/>
+                            <p>Switch</p>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="verticalBarOptionBottom-body">
+                    <div class="verticalBarOption1">
+                        <p style="border-bottom: #437EEA solid 2px;">DOM</p>
+                        <p>Actifs</p>
+                        <p>Fragments de code</p>
+                    </div>
+
+                    <div ref="dom" class="dom-preview">
+                        <!-- <div class="verticalBarOption2">
+                            <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/triangle.png`)"/>
+                            <p>Html</p>
+                        </div> -->
+                    </div>
+
+                    <!-- <div class="verticalBarOption3">
+                        <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/triangle-right.png`)"/>
+                        <p>Head</p>
+                    </div>
+                    <div class="verticalBarOption4">
+                        <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/triangle.png`)"/>
+                        <p>Body</p>
+                    </div>
+                    <div class="verticalBarOption5">
+                        <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/triangle-right.png`)"/>
+                        <p>Nav</p>
+                        <p>azertyuiop qsdfghjklm</p>
+                    </div>
+                    <div class="verticalBarOption6">
+                        <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/triangle-right.png`)"/>
+                        <p>Div</p>
+                        <p>azerty uiop qsdfg hjklm</p>
+                    </div>
+                    <div class="verticalBarOption7">
+                        <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/triangle-right.png`)"/>
+                        <p>Div</p>
+                        <p>azerty</p>
+                    </div> -->
+                
+                </div>
+             </div>
         </div>
+    </div>
+
+    <!-- <div class="menu-components">
+        <div v-for='item in compo' :key='item.title' class="component" draggable @dragstart='startDrag($event, item)'>
+            {{ item.tagName }}
+        </div>
+        <div ref="dom" class="dom">
+        </div>
+    </div> -->
+
+
+    <div ref="test" class="edit-preview" @drop='onDrop($event)' @dragover.prevent @dragenter.prevent>
     </div>
     <div class="body-right">
         <VerticalBarOptionRight/>

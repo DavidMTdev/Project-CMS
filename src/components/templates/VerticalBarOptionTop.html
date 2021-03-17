@@ -2,11 +2,11 @@
     <div class="verticalBarOptionTop-body_top">
         <h3>Components</h3>
     </div>
-    <div class="verticalBarOptionTop-body_middle">
+    <div class="verticalBarOptionTop-body_middle" @click="openBodyBottom">
         <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/triangle.png`)"/>
         <p>ESSENTIALS</p>
     </div>
-    <div class="verticalBarOptionTop-body_bottom">
+    <div class="verticalBarOptionTop-body_bottom" v-if="showBodyBottom">
         <div class="body_bottom">
             <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/button.png`)"/>
             <p>Button</p>
