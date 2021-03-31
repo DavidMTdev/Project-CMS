@@ -8,18 +8,21 @@ export default class DragAndDrop {
     idName: string | null;
     element!: any;
     id!: number;
+    sectionEditable!: Array<Array<string | boolean>>
 
-    constructor(tagName: string, idName: string | null, className: string | null, content?: string) {
+    constructor(tagName: string, idName: string | null, className: string | null, sectionEditable: Array<Array<string |  boolean>>, content?: string) {
         this.tagName = tagName;
         this.content = content;
         this.className = className;
         this.idName = idName;
+        this.sectionEditable = sectionEditable
     }
 
     createElement(event: DragEvent, id: number, Project: Projet): void {
         const target: any = event.target;
-
+    
         const oldTarget: Element | null = document.querySelector(`[data-select="true"]`);
+        
         oldTarget?.setAttribute("data-select", "false");
 
         this.element = document.createElement(`${this.tagName}`);
@@ -41,9 +44,13 @@ export default class DragAndDrop {
         }
 
         target.appendChild(this.element);
+
+        // dans elementSelect on met l'element selectionner
+        Project.elementSelect = this   
         
         // edit
         Project.edit.setElement(this.element)
+        Project.edit.setSectionEditable(this.sectionEditable,Project)
         Project.style.color = Project.edit.color
     }
 
@@ -57,10 +64,11 @@ export default class DragAndDrop {
                 const oldTarget: Element | null = document.querySelector(`[data-select="true"]`);
 
                 oldTarget?.setAttribute("data-select", "false");
-                target?.setAttribute("data-select", "true");            
+                target?.setAttribute("data-select", "true");     
                 
                 // edit
                 if (target) {
+                    Project.edit.setSectionEditable(this.sectionEditable, Project)
                     Project.edit.setElement(target);
                     Project.style.color = Project.edit.color
                 }
