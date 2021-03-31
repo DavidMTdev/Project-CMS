@@ -14,8 +14,6 @@ export default class Edit {
         this.element = element
 
         this.color = new Hex(getComputedStyle(this.element)).getHex()
-        console.log(this.element);
-        
     }
 
     setSectionEditable(sectionEditable: Array<Array<string | boolean>>, Project: Projet){

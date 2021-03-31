@@ -43,6 +43,18 @@ export default class DragAndDrop {
             this.element.innerHTML += this.content;
         }
 
+        // this.element.addEventListener('mouseenter', () => {
+        //     if (this.element.getAttribute("data-select") == 'false') {
+        //         this.element.classList.add('js-over');
+        //     } 
+        // })
+
+        // this.element.addEventListener('mouseout', () => {
+        //     if (this.element.getAttribute("data-select") == 'false') {
+        //         this.element.classList.remove('js-over');
+        //     }
+        // })
+
         target.appendChild(this.element);
 
         // dans elementSelect on met l'element selectionner
@@ -92,4 +104,5 @@ export default class DragAndDrop {
             }
         })
     }
+
 }
