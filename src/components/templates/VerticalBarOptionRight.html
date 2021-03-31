@@ -49,6 +49,7 @@
         <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
         <p>Background Overlay</p>
     </div>
+
     <div class="container_content-3" @click="contentBorder">
         <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
         <p>Border</p>
@@ -74,24 +75,59 @@
         </div>
     </div>
 
+    <div class="container_content-3" @click="contentPadding">
+        <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
+        <p>Padding</p>
+    </div>
+    <div class="container_content-3-2">
+        <div class="container_content-3-2--container" v-if="showPadding">
+            <div class="container_content-3-2--content">
+                <span>Top</span>
+                <input type="number" name="top" min="0" max="100" value="50">
+            </div>
+            <div class="container_content-3-2--content">
+                <span>Right</span>
+                <input type="number" name="right" min="0" max="100" value="50">
+            </div>
+            <div class="container_content-3-2--content">
+                <span>Bottom</span>
+                <input type="number" name="bottom" min="0" max="100" value="50">
+            </div>
+            <div class="container_content-3-2--content">
+                <span>Left</span>
+                <input type="number" name="left" min="0" max="100" value="50">
+            </div>
+        </div>
+    </div>
+
+    <div class="container_content-3" @click="contentMargin">
+        <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
+        <p>Margin</p>
+    </div>
+    <div class="container_content-3-2">
+        <div class="container_content-3-2--container" v-if="showMargin">
+            <div class="container_content-3-2--content">
+                <span>Top</span>
+                <input type="number" name="top" min="0" max="100" value="50">
+            </div>
+            <div class="container_content-3-2--content">
+                <span>Right</span>
+                <input type="number" name="right" min="0" max="100" value="50">
+            </div>
+            <div class="container_content-3-2--content">
+                <span>Bottom</span>
+                <input type="number" name="bottom" min="0" max="100" value="50">
+            </div>
+            <div class="container_content-3-2--content">
+                <span>Left</span>
+                <input type="number" name="left" min="0" max="100" value="50">
+            </div>
+        </div>
+    </div>
+
     <div class="container_content-3" @click="content4V">
         <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle.png`)"/>
-        <p>Shape Divider</p>
-    </div>
-    
-    <div v-if="showcontent4V" class="container_content-4">
-        <div class="container_4-1">
-            <div class="content_4-1">
-                <p>Top</p>
-            </div>
-            <div class="content_4-2">
-                <p>Bottom</p>
-            </div>
-        </div>
-        <div class="container_4-2">
-            <p>Color</p>
-            <div class="container_4-2--color"></div>
-        </div>
+        <p>Size</p>
     </div>
 
     <div class="container_content-5" v-if="showcontent4V">
@@ -104,7 +140,7 @@
                     <input id="slider" type="range" :min="min" :max="max" v-model="value" @change="bar($event)">
                 </div>
                 <div class="nb1">
-                    <input class="nb-i" v-model="value" maxlength="3" type="text" />
+                    <input class="nb-i" v-model="value" maxlength="3" :min="0" :max="100" type="number" />
                 </div>
             </div>
 

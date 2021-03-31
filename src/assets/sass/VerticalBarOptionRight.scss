@@ -181,7 +181,7 @@
     flex-direction: column;
     color: $claire;
     font-size: 0.7em;
-    border-top: $blue solid 1px;
+    // border-top: $blue solid 1px;
     border-bottom: $blue solid 1px;
     padding: 10px 0;
 }
@@ -196,13 +196,13 @@
 .content_5-1--c{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 10px;
-    margin: 10px 0;
+    margin: 10px 10px;
 }
 .line_width{
-    width: 70%;
+    width: 100%;
     margin: 24% auto;
 
     #slider{
@@ -216,12 +216,19 @@
 .nb1{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 20px;
-    width: 30px;
-    border-radius: 10px;
-    border: $blue solid 1px;
+    width: 100px;
     font-size: 0.7em;
+
+    input{
+        width: 70%;
+        height: 15px;
+        background-color: #F4F4F9;
+        color: black;
+        font-size: 1.7em;
+
+    }
 }
 
 .content_5-2{
@@ -231,10 +238,10 @@
 .content_5-2--c{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 10px;
-    margin: 10px 0;
+    margin: 10px 10px;
 }
 .content_5-2--t{
     margin-left: 6px;
