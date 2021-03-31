@@ -119,7 +119,7 @@ export default class Dom {
                     if (currentElement) {
                         Project.edit.setElement(currentElement);
                         Project.edit.setSectionEditable(Project.elementSelect.sectionEditable, Project)
-                        Project.style.color = Project.edit.color
+                        Project.style = Project.edit.getStyle()
                     }
                 }
             })

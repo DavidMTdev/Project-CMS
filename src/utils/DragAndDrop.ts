@@ -8,9 +8,9 @@ export default class DragAndDrop {
     idName: string | null;
     element!: any;
     id!: number;
-    sectionEditable!: Array<Array<string | boolean>>
+    sectionEditable!: object
 
-    constructor(tagName: string, idName: string | null, className: string | null, sectionEditable: Array<Array<string |  boolean>>, content?: string) {
+    constructor(tagName: string, idName: string | null, className: string | null, sectionEditable: object, content?: string) {
         this.tagName = tagName;
         this.content = content;
         this.className = className;
@@ -51,7 +51,7 @@ export default class DragAndDrop {
         // edit
         Project.edit.setElement(this.element)
         Project.edit.setSectionEditable(this.sectionEditable,Project)
-        Project.style.color = Project.edit.color
+        Project.style = Project.edit.getStyle()
     }
 
     editableElement(Project: Projet){
@@ -70,7 +70,7 @@ export default class DragAndDrop {
                 if (target) {
                     Project.edit.setSectionEditable(this.sectionEditable, Project)
                     Project.edit.setElement(target);
-                    Project.style.color = Project.edit.color
+                    Project.style = Project.edit.getStyle()
                 }
             }  
         });

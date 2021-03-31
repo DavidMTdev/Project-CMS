@@ -78,11 +78,11 @@
                 </div>
                 <div class="container_content-3-1" v-if="showBackground">
                     <div class="container_content-3-1--container">
-                        <div v-if="edit.sectionEditable[0][1]" class="container_content-3-1--content">
+                        <div v-if="edit.sectionEditable.color" class="container_content-3-1--content">
                             <label for="head">text</label>
                             <input type="color" name="head" v-model="style.color" @change='edit.changeColor($event)'>
                         </div>
-                        <div v-if="edit.sectionEditable[1][1]" class="container_content-3-1--content">
+                        <div v-if="edit.sectionEditable.background" class="container_content-3-1--content">
                             <label for="body">background</label>
                             <input type="color" id="body" name="body" value="#f6b73c">
                         </div>
@@ -104,7 +104,7 @@
                     <div class="container_content-3-2--container" v-if="showBorder">
                         <div class="container_content-3-2--content">
                             <span>Top</span>
-                            <input type="number" name="top" min="0" max="100" value="50">
+                            <input type="number" name="top" min="0" max="100" value="0">
                         </div>
                         <div class="container_content-3-2--content">
                             <span>Right</span>
@@ -129,19 +129,19 @@
                     <div class="container_content-3-2--container" v-if="showPadding">
                         <div class="container_content-3-2--content">
                             <span>Top</span>
-                            <input type="number" name="top" min="0" max="100" value="50">
+                            <input type="number" name="top" min="0" max="100"  v-model="style.padding.top" @change='edit.changePaddingTop($event)'>
                         </div>
                         <div class="container_content-3-2--content">
                             <span>Right</span>
-                            <input type="number" name="right" min="0" max="100" value="50">
+                            <input type="number" name="right" min="0" max="100" v-model="style.padding.right" @change='edit.changePaddingRight($event)'>
                         </div>
                         <div class="container_content-3-2--content">
                             <span>Bottom</span>
-                            <input type="number" name="bottom" min="0" max="100" value="50">
+                            <input type="number" name="bottom" min="0" max="100" v-model="style.padding.bottom" @change='edit.changePaddingBottom($event)'>
                         </div>
                         <div class="container_content-3-2--content">
                             <span>Left</span>
-                            <input type="number" name="left" min="0" max="100" value="50">
+                            <input type="number" name="left" min="0" max="100" v-model="style.padding.left" @change='edit.changePaddingLeft($event)'>
                         </div>
                     </div>
                 </div>
