@@ -5,6 +5,7 @@
 .body1{
     display: flex;
     justify-content: space-between;
+    height: calc(100vh - 50px);
 }
 .body-left{
     background-color: $sombre;
