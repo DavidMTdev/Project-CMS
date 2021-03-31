@@ -121,26 +121,61 @@
                     </div>
                 </div>
 
+                <div class="container_content-3" @click="contentPadding">
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
+                    <p>Padding</p>
+                </div>
+                <div class="container_content-3-2">
+                    <div class="container_content-3-2--container" v-if="showPadding">
+                        <div class="container_content-3-2--content">
+                            <span>Top</span>
+                            <input type="number" name="top" min="0" max="100" value="50">
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Right</span>
+                            <input type="number" name="right" min="0" max="100" value="50">
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Bottom</span>
+                            <input type="number" name="bottom" min="0" max="100" value="50">
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Left</span>
+                            <input type="number" name="left" min="0" max="100" value="50">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="container_content-3" @click="contentMargin">
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)"/>
+                    <p>Margin</p>
+                </div>
+                <div class="container_content-3-2">
+                    <div class="container_content-3-2--container" v-if="showMargin">
+                        <div class="container_content-3-2--content">
+                            <span>Top</span>
+                            <input type="number" name="top" min="0" max="100" value="50">
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Right</span>
+                            <input type="number" name="right" min="0" max="100" value="50">
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Bottom</span>
+                            <input type="number" name="bottom" min="0" max="100" value="50">
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Left</span>
+                            <input type="number" name="left" min="0" max="100" value="50">
+                        </div>
+                    </div>
+                </div>
+            
                 <div class="container_content-3" @click="content4V">
-                    <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle.png`)" />
-                    <p>Shape Divider</p>
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle.png`)"/>
+                    <p>Size</p>
                 </div>
-
-                <div v-if="showcontent4V" class="container_content-4">
-                    <div class="container_4-1">
-                        <div class="content_4-1">
-                            <p>Top</p>
-                        </div>
-                        <div class="content_4-2">
-                            <p>Bottom</p>
-                        </div>
-                    </div>
-                    <div class="container_4-2">
-                        <p>Color</p>
-                        <div class="container_4-2--color"></div>
-                    </div>
-                </div>
-
+            
                 <div class="container_content-5" v-if="showcontent4V">
                     <div class="content_5-1">
                         <div class="content_5-1--t">
@@ -148,25 +183,25 @@
                         </div>
                         <div class="content_5-1--c">
                             <div class="line_width">
-                                <input id="slider" type="range" :min="min" :max="max" v-model="value">
+                                <input id="slider" type="range" :min="min" :max="max" v-model="value" @change="bar($event)">
                             </div>
                             <div class="nb1">
-                                <p>{{value}}</p>
+                                <input class="nb-i" v-model="value" maxlength="3" :min="0" :max="100" type="number" />
                             </div>
                         </div>
-
+            
                     </div>
-
-                    <div class="content_5-2">
-                        <div class="content_5-2--t">
+            
+                    <div class="content_5-1">
+                        <div class="content_5-1--t">
                             <p>Height</p>
                         </div>
-                        <div class="content_5-2--c">
-                            <div class="line_height">
-                                <input id="slider" type="range" :min="min" :max="max" v-model="value2">
+                        <div class="content_5-1--c">
+                            <div class="line_width">
+                                <input id="slider" type="range" :min="min" :max="max" v-model="value2" @change="bar($event)">
                             </div>
-                            <div class="nb2">
-                                <p>{{value2}}</p>
+                            <div class="nb1">
+                                <input class="nb-i" v-model="value2" maxlength="3" :min="0" :max="100" type="number" />
                             </div>
                         </div>
                     </div>

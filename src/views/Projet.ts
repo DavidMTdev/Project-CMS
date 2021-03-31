@@ -26,11 +26,10 @@ export default class Projet extends Vue {
     dom!: Dom;
     edit!: Edit;
 
-    showBodyBottom = false;
-
+    showBodyBottom = true;
     showBackground = true;
-    showcontent4V = false;
-    showBorder = false;
+    showcontent4V = true;
+    showBorder = true;
 
     min = 0;
     max = 100;
