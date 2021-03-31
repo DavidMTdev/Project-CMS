@@ -146,16 +146,16 @@
 
         </div>
 
-        <div class="content_5-2">
-            <div class="content_5-2--t">
+        <div class="content_5-1">
+            <div class="content_5-1--t">
                 <p>Height</p>
             </div>
-            <div class="content_5-2--c">
-                <div class="line_height">
+            <div class="content_5-1--c">
+                <div class="line_width">
                     <input id="slider" type="range" :min="min" :max="max" v-model="value2" @change="bar($event)">
                 </div>
-                <div class="nb2">
-                    <input class="nb-i" v-model="value2" maxlength="3" type="text" />
+                <div class="nb1">
+                    <input class="nb-i" v-model="value2" maxlength="3" :min="0" :max="100" type="number" />
                 </div>
             </div>
         </div>
