@@ -7,6 +7,7 @@ import VerticalBarOptionRight from '@/components/VerticalBarOptionRight'
 import Dom from '@/utils/Dom'
 import DragAndDrop from '@/utils/DragAndDrop';
 import Edit from '@/utils/Edit';
+import ToolsMenu from '@/utils/ToolsMenu';
 
 Vue.config.productionTip = false
 
@@ -25,6 +26,7 @@ export default class Projet extends Vue {
     count!: number;
     dom!: Dom;
     edit!: Edit;
+    toolsMenu!: ToolsMenu;
 
     showBodyBottom = true;
 
@@ -50,7 +52,7 @@ export default class Projet extends Vue {
 
     mounted() {
         this.dom = new Dom();
-        this.edit = new Edit();        
+        this.edit = new Edit();    
 
         this.compo.push(new DragAndDrop("h1", null, "display-1",{"color": true,"background": true}, "mon super titre" ));
         // this.compo.push(new DragAndDrop("div", "section", "container"));
@@ -60,6 +62,8 @@ export default class Projet extends Vue {
 
         this.count = 0; 
         
+        this.toolsMenu = new ToolsMenu();   
+        this.toolsMenu.create();      
     }
 
     startDrag(event: DragEvent, item: DragAndDrop) {
@@ -69,6 +73,8 @@ export default class Projet extends Vue {
     onDrop(event: DragEvent) {
         this.element.createElement(event, this.count, this);
         this.element.editableElement(this);
+
+        this.toolsMenu.move((this.$refs.test as Element), (this.element.element as Element))
 
         this.dom.updateDom(this.$refs.test, this.$refs.dom);
         this.dom.elementDomClick(this);
