@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="245" height="237" viewBox="0 0 245 237">
+  <g id="Groupe_124" data-name="Groupe 124" transform="translate(-1313 -321)">
+    <rect id="Rectangle_66" data-name="Rectangle 66" width="245" height="237" transform="translate(1313 321)" fill="#feffff"/>
+    <rect id="Rectangle_75" data-name="Rectangle 75" width="245" height="65" transform="translate(1313 321)" fill="#f4f5f9"/>
+    <g id="Groupe_59" data-name="Groupe 59" transform="translate(328 -62.552)">
+      <path id="Tracé_45" data-name="Tracé 45" d="M0,0H178.069V82.469H0Z" transform="translate(1018 420.083)" fill="#e7eaf0"/>
+      <path id="Tracé_46" data-name="Tracé 46" d="M2887,411.484s23.156-43.609,44.616-22.415,18.143,23.6,29.41,22.415,14.239-45.652,41.235-51.382,62.809,51.382,62.809,51.382v14.939L2887,426.457Z" transform="translate(-1869 76.095)" fill="#fbfcff"/>
+      <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="5.907" cy="6.329" rx="5.907" ry="6.329" transform="translate(1075.387 441.111)" fill="#fbfcff"/>
+    </g>
+    <rect id="Rectangle_76" data-name="Rectangle 76" width="245" height="51" transform="translate(1313 507)" fill="#f4f5f9"/>
+    <g id="Groupe_81" data-name="Groupe 81" transform="translate(-4)">
+      <path id="Tracé_48" data-name="Tracé 48" d="M0,0H96" transform="translate(1391.5 532.5)" fill="none" stroke="#feffff" stroke-linecap="round" stroke-width="10"/>
+      <line id="Ligne_36" data-name="Ligne 36" x2="17" transform="translate(1470.5 532.5)" fill="none" stroke="#d7dce1" stroke-linecap="round" stroke-width="10"/>
+    </g>
+    <text id="Page_Title_" data-name="Page Title " transform="translate(1410 343)" fill="#27293f" font-size="11" font-family="Roboto-Regular, Roboto" opacity="0.247"><tspan x="0" y="0">Page Title </tspan></text>
+    <text id="CTA" transform="translate(1425 521)" fill="#27293f" font-size="11" font-family="Roboto-Regular, Roboto" opacity="0.246"><tspan x="0" y="0">CTA</tspan></text>
+  </g>
+</svg>

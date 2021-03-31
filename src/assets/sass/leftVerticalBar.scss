@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
-    height: calc(100vh - 30px);
+    height: 100%;
 }
 
 .VerticalBarBody-top{
@@ -26,6 +26,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 5px;
 }
 .VerticalBarBody-bottum img{
     height: 15px;

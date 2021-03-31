@@ -8,6 +8,8 @@ export default class VerticalBarOptionRight extends Vue{
     showcontent4V = false
     showBackground = false;
     showBorder = false
+    showPadding = false
+    showMargin = false
     selector!: Element | null;
     min = 0;
     max = 100;
@@ -24,6 +26,12 @@ export default class VerticalBarOptionRight extends Vue{
     }
     contentBorder(){
         this.showBorder = !this.showBorder
+    }
+    contentPadding(){
+        this.showPadding = !this.showPadding
+    }
+    contentMargin(){
+        this.showMargin = !this.showMargin
     }
 
 }
