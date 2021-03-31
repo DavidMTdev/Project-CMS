@@ -3,14 +3,14 @@ import Edit from "./Edit";
 
 export default class DragAndDrop {
     tagName: string;
-    content: string | undefined;
+    content: string | null;
     className: string | null;
     idName: string | null;
     element!: any;
     id!: number;
     sectionEditable!: object
 
-    constructor(tagName: string, idName: string | null, className: string | null, sectionEditable: object, content?: string) {
+    constructor(tagName: string, idName: string | null, className: string | null, sectionEditable: object, content: string | null) {
         this.tagName = tagName;
         this.content = content;
         this.className = className;
@@ -37,7 +37,7 @@ export default class DragAndDrop {
             this.element.setAttribute("class", `${this.className}`);
         }
 
-        if (this.content == undefined) {
+        if (this.content == null) {
             this.element.setAttribute("data-height", "100px");
         } else {
             this.element.innerHTML += this.content;

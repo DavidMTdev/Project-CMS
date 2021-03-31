@@ -9,6 +9,9 @@ import DragAndDrop from '@/utils/DragAndDrop';
 import Edit from '@/utils/Edit';
 import ToolsMenu from '@/utils/ToolsMenu';
 
+import projectJSON from "@/assets/json/project_1.json";
+
+
 Vue.config.productionTip = false
 
 @WithRender
@@ -53,8 +56,10 @@ export default class Projet extends Vue {
     mounted() {
         this.dom = new Dom();
         this.edit = new Edit();    
+        // const projectJSON = require("@/assets/json/project_1.json");
 
-        this.compo.push(new DragAndDrop("h1", null, "display-1",{"color": true,"background": true}, "mon super titre" ));
+        this.compo.push(new DragAndDrop(projectJSON[0].tagName, projectJSON[0].id, projectJSON[0].className, projectJSON[0].editStyle, projectJSON[0].content));
+        this.compo.push(new DragAndDrop(projectJSON[1].tagName, projectJSON[1].id, projectJSON[1].className, projectJSON[1].editStyle, projectJSON[1].content));
         // this.compo.push(new DragAndDrop("div", "section", "container"));
         // this.compo.push(new DragAndDrop("button", null, "btn btn-primary", "Button"));
         // this.compo.push(new DragAndDrop("input", null, "btn btn-primary", "Button"));
