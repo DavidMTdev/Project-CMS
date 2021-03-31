@@ -27,9 +27,12 @@ export default class Projet extends Vue {
     edit!: Edit;
 
     showBodyBottom = true;
-    showBackground = true;
-    showcontent4V = true;
-    showBorder = true;
+
+    showcontent4V = false
+    showBackground = false;
+    showBorder = false
+    showPadding = false
+    showMargin = false
 
     min = 0;
     max = 100;
@@ -88,6 +91,12 @@ export default class Projet extends Vue {
     }
     contentBorder(){
         this.showBorder = !this.showBorder
+    }
+    contentPadding(){
+        this.showPadding = !this.showPadding
+    }
+    contentMargin(){
+        this.showMargin = !this.showMargin
     }
 
 }
