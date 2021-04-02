@@ -1,6 +1,14 @@
 import Projet from "@/views/Projet";
 import Edit from "./Edit";
 
+interface Component {
+    tagName: string;
+    content: string | null;
+    className: string | null;
+    idName: string | null;
+    sectionEditable: object;
+}
+
 export default class DragAndDrop {
     tagName: string;
     content: string | null;
@@ -10,12 +18,12 @@ export default class DragAndDrop {
     id!: number;
     sectionEditable!: object
 
-    constructor(tagName: string, idName: string | null, className: string | null, sectionEditable: object, content: string | null) {
-        this.tagName = tagName;
-        this.content = content;
-        this.className = className;
-        this.idName = idName;
-        this.sectionEditable = sectionEditable
+    constructor(component: Component) {
+        this.tagName = component.tagName;
+        this.content = component.content;
+        this.className = component.className;
+        this.idName = component.idName;
+        this.sectionEditable = component.sectionEditable
     }
 
     createElement(event: DragEvent, id: number, Project: Projet): void {

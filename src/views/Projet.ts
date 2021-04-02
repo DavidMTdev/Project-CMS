@@ -1,4 +1,4 @@
-import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import WithRender from '@/views/templates/projet.html'
 
 import leftVerticalBar from '@/components/LeftVerticalBar'
@@ -9,8 +9,7 @@ import DragAndDrop from '@/utils/DragAndDrop';
 import Edit from '@/utils/Edit';
 import ToolsMenu from '@/utils/ToolsMenu';
 
-import projectJSON from "@/assets/json/project_1.json";
-
+import ComponentList from "@/assets/json/ComponentList.json";
 
 Vue.config.productionTip = false
 
@@ -58,12 +57,9 @@ export default class Projet extends Vue {
         this.edit = new Edit();    
         // const projectJSON = require("@/assets/json/project_1.json");
 
-        this.compo.push(new DragAndDrop(projectJSON[0].tagName, projectJSON[0].id, projectJSON[0].className, projectJSON[0].editStyle, projectJSON[0].content));
-        this.compo.push(new DragAndDrop(projectJSON[1].tagName, projectJSON[1].id, projectJSON[1].className, projectJSON[1].editStyle, projectJSON[1].content));
-        // this.compo.push(new DragAndDrop("div", "section", "container"));
-        // this.compo.push(new DragAndDrop("button", null, "btn btn-primary", "Button"));
-        // this.compo.push(new DragAndDrop("input", null, "btn btn-primary", "Button"));
-        // this.compo.push(new DragAndDrop("p", null, "text", "Hanc Atratino si cum qui ignosco acriter Atratino excusationem vel odio si meo est habet spei ignosco nihil optimo liceret hac excusationem habet libidine volueritis causa resistendum nec intolerabili cui si Si Ceteris nihil non necessitati de nisi spei nimis non existimare ego descensurum accusationem voluit excusationem spei meo descensurum volueritis vel ego vel ignosco causa intolerabili accusare optimo excusationem nec non causa speravit acerbo modo niteretur niteretur aetatis descendisset volueritis constituetis nimis fuisse necessario est alicuius sic descensurum necessario nec necessario iussus descensurum ignosco descendisset optimo aliquid iudices iussus modo si iudices Si necessitati est pietatis iudices quicquam etiam."));
+        for (let index = 0; index < ComponentList.length; index++) {
+            this.compo.push(new DragAndDrop(ComponentList[index]));
+        }
 
         this.count = 0; 
         
@@ -86,8 +82,6 @@ export default class Projet extends Vue {
         this.count++; 
            
     }
-
-
 
     openBodyBottom() {
         this.showBodyBottom = !this.showBodyBottom
