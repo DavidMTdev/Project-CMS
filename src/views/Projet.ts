@@ -28,7 +28,7 @@ export default class Projet extends Vue {
     count!: number;
     dom!: Dom;
     edit!: Edit;
-    toolsMenu!: ToolsMenu;
+    // toolsMenu!: ToolsMenu;
 
     showBodyBottom = true;
 
@@ -63,8 +63,8 @@ export default class Projet extends Vue {
 
         this.count = 0; 
         
-        this.toolsMenu = new ToolsMenu();   
-        this.toolsMenu.create();      
+        // this.toolsMenu = new ToolsMenu();   
+        // this.toolsMenu.create();      
     }
 
     startDrag(event: DragEvent, item: DragAndDrop) {
@@ -74,13 +74,19 @@ export default class Projet extends Vue {
     onDrop(event: DragEvent) {
         this.element.createElement(event, this.count, this);
         this.element.editableElement(this);
+        // this.toolsMenu.display((this.$refs.test as Element), (this.element.element as Element))
+        // this.toolsMenu.remove((this.element.element as Element))
 
-        this.toolsMenu.move((this.$refs.test as Element), (this.element.element as Element))
+        const toolsMenu = new ToolsMenu();   
+        toolsMenu.create();      
+
+        toolsMenu.display((this.$refs.test as Element), (this.element.element as Element))
+        toolsMenu.remove((this.$refs.test as Element), (this.element.element as Element))
 
         this.dom.updateDom(this.$refs.test, this.$refs.dom);
         this.dom.elementDomClick(this);
+        
         this.count++; 
-           
     }
 
     openBodyBottom() {

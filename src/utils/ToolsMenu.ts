@@ -1,25 +1,29 @@
 export default class ToolsMenu {
     toolsMenu!: Element;
+    toolDrag!: Element;
+    toolEdit!: Element;
+    toolDelete!: Element;
+
 
     create(): void {
         this.toolsMenu = document.createElement('div');
         this.toolsMenu.classList.add('tools-menu')
 
-        const toolDrag = document.createElement('div');
-        const toolEdit = document.createElement('div');
-        const toolDelete = document.createElement('div');
+        this.toolDrag = document.createElement('div');
+        this.toolEdit = document.createElement('div');
+        this.toolDelete = document.createElement('div');
 
-        toolDrag.classList.add('tool')
-        toolEdit.classList.add('tool')
-        toolDelete.classList.add('tool')
+        this.toolDrag.classList.add('tool')
+        this.toolEdit.classList.add('tool')
+        this.toolDelete.classList.add('tool')
 
-        toolDrag.innerHTML = "D"
-        toolEdit.innerHTML = "E"
-        toolDelete.innerHTML = "R"
+        this.toolDrag.innerHTML = "D"
+        this.toolEdit.innerHTML = "E"
+        this.toolDelete.innerHTML = "R"
 
-        this.toolsMenu.appendChild(toolEdit)
-        this.toolsMenu.appendChild(toolDrag)
-        this.toolsMenu.appendChild(toolDelete)
+        this.toolsMenu.appendChild(this.toolEdit)
+        this.toolsMenu.appendChild(this.toolDrag)
+        this.toolsMenu.appendChild(this.toolDelete)
     }
 
     addToolsMenu(target: Element): void {
@@ -30,7 +34,7 @@ export default class ToolsMenu {
         target.removeChild(this.toolsMenu) 
     }
 
-    move(editPreview: Element, target: Element): void {
+    display(editPreview: Element, target: Element): void {
             target.addEventListener('mouseover', () => {
                 if (target.getAttribute("data-select") == 'true') {
                     this.addToolsMenu(target)
@@ -42,5 +46,11 @@ export default class ToolsMenu {
                     this.removeToolsMenu(target)
                 }
             })
+    }
+
+    remove(editPreview: Element, target: Element): void {
+        this.toolDelete.addEventListener("click", () => {
+            editPreview.removeChild(target);
+        })
     }
 }
