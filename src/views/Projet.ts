@@ -39,18 +39,12 @@ export default class Projet extends Vue {
     showMargin = false
 
     min = 0;
-    max = 100;
+    max = 1000;
     step = 1;
     value = 50;
     value2 = 50;
     // color = '#000000';
-
-    style = {
-        color: '#000000',
-        padding: {"right": 0, "left": 0, "top": 0, "bottom": 0},
-        margin: 0
-    }
-
+    style = {}
 
     mounted() {
         this.dom = new Dom();

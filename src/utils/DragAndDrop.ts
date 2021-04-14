@@ -18,12 +18,12 @@ export default class DragAndDrop {
     id!: number;
     sectionEditable!: object
 
-    constructor(component: Component) {
+    constructor(component: Component) {     
         this.tagName = component.tagName;
         this.content = component.content;
         this.className = component.className;
         this.idName = component.idName;
-        this.sectionEditable = component.sectionEditable
+        this.sectionEditable = component.editStyle
     }
 
     createElement(event: DragEvent, id: number, Project: Projet): void {
@@ -69,7 +69,7 @@ export default class DragAndDrop {
         Project.elementSelect = this   
         
         // edit
-        Project.edit.setElement(this.element)
+        Project.edit.setElement(this.element)  
         Project.edit.setSectionEditable(this.sectionEditable,Project)
         Project.style = Project.edit.getStyle()
     }
