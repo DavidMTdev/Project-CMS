@@ -1,3 +1,6 @@
+import Projet from "@/views/Projet";
+import Edit from "./Edit";
+
 export default class Dom {
     nodes: Array<any> = []
 
@@ -5,8 +8,6 @@ export default class Dom {
         this.allChildren(body, false)
 
         target.innerHTML = ""
-        console.log(this.nodes);
-
 
         this.nodes.forEach(element => {
             this.printElement(element, target, 0)
@@ -85,7 +86,7 @@ export default class Dom {
         return this.nodes;
     }
 
-    elementDomClick() {
+    elementDomClick(Project: Projet) {
         const dom = document.querySelector(".dom-preview")
 
         dom?.childNodes.forEach(element => {
@@ -113,10 +114,16 @@ export default class Dom {
 
                     oldElement?.setAttribute("data-select", "false")
                     currentElement?.setAttribute("data-select", "true")
+                    
+                    // edit
+                    if (currentElement) {
+                        Project.edit.setElement(currentElement);
+                        Project.edit.setSectionEditable(Project.elementSelect.sectionEditable, Project)
+                        Project.style = Project.edit.getStyle()
+                    }
                 }
-
-
             })
         });
     }
 }
+

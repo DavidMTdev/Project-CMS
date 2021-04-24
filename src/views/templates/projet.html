@@ -3,7 +3,7 @@
     <!-- mettre component ici -->
     <div class="body-left">
         <div class="body-left-1">
-            <leftVerticalBar/>
+            <leftVerticalBar />
         </div>
         <div class="body-left-2">
 
@@ -14,12 +14,13 @@
                         <h3>Components</h3>
                     </div>
                     <div class="verticalBarOptionTop-body_middle" @click="openBodyBottom">
-                        <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/triangle.png`)"/>
+                        <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/triangle.png`)" />
                         <p>ESSENTIALS</p>
                     </div>
                     <div class="verticalBarOptionTop-body_bottom" v-if="showBodyBottom">
-                        <div class="body_bottom" v-for='item in compo' :key='item.title' draggable @dragstart='startDrag($event, item)'>
-                            <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/button.png`)"/>
+                        <div class="body_bottom" v-for='item in compo' :key='item.title' draggable
+                            @dragstart='startDrag($event, item)'>
+                            <img class="MenuProjet_Top-Logo" :src="require(`@/assets/icon/button.png`)" />
                             <p>{{ item.tagName }}</p>
                         </div>
                     </div>
@@ -32,15 +33,199 @@
                     </div>
 
                     <div ref="dom" class="dom-preview">
-                    </div>       
+                    </div>
                 </div>
-             </div>
+            </div>
         </div>
     </div>
+
     <div ref="test" class="edit-preview" @drop='onDrop($event)' @dragover.prevent @dragenter.prevent>
     </div>
+
     <div class="body-right">
-        <VerticalBarOptionRight/>
+        <!-- <VerticalBarOptionRight/> -->
+
+        <div class="main_container">
+
+            <div class="container_content-1">
+                <img class="container_content-1__icon" :src="require(`@/assets/icon/burger24.png`)" />
+                <h3>Edit section</h3>
+                <img class="container_content-1__icon" :src="require(`@/assets/icon/interfaceUser24.png`)" />
+            </div>
+
+            <div v-if="isSelect">
+
+                <div class="container_content-2">
+                    <div class="content_2-1">
+                        <img class="container_content-2__icon" :src="require(`@/assets/icon/layout24.png`)" />
+                        <p>Layout</p>
+                    </div>
+                    <div class="content_2-2">
+                        <img class="container_content-2__icon" :src="require(`@/assets/icon/style24.png`)" />
+                        <p>Style</p>
+                    </div>
+                    <div class="content_2-3">
+                        <img class="container_content-2__icon" :src="require(`@/assets/icon/settings.png`)" />
+                        <p>Advanced</p>
+                    </div>
+
+                </div>
+
+                <div @click="openBackground" class="container_content-3">
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)" />
+                    <p>Color</p>
+                </div>
+                <div class="container_content-3-1" v-if="showBackground">
+                    <div class="container_content-3-1--container">
+                        <div v-if="edit.sectionEditable.color" class="container_content-3-1--content">
+                            <label for="head">text</label>
+                            <input type="color" name="head" v-model="style.color" @change='edit.changeColor($event)'>
+                        </div>
+                        <div v-if="edit.sectionEditable.background" class="container_content-3-1--content">
+                            <label for="body">background</label>
+                            <input type="color" id="body" name="body" value="#f6b73c">
+                        </div>
+                        <div class="container_content-3-1--content">
+                            <label for="body">border</label>
+                            <input type="color" id="body" name="body" value="#FFFFFF">
+                        </div>
+                    </div>
+                </div>
+                <div class="container_content-3">
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)" />
+                    <p>Background Overlay</p>
+                </div>
+                <div class="container_content-3" @click="contentBorder">
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)" />
+                    <p>Border</p>
+                </div>
+                <div class="container_content-3-2">
+                    <div class="container_content-3-2--container" v-if="showBorder">
+                        <div class="container_content-3-2--content">
+                            <span>Top</span>
+                            <input type="number" name="top" min="0" max="100" v-model="style.border.top"
+                                @change='edit.changeBorderTop($event)'>
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Right</span>
+                            <input type="number" name="right" min="0" max="100" v-model="style.border.right"
+                                @change='edit.changeBorderRight($event)'>
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Bottom</span>
+                            <input type="number" name="bottom" min="0" max="100" v-model="style.border.bottom"
+                                @change='edit.changeBorderBottom($event)'>
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Left</span>
+                            <input type="number" name="left" min="0" max="100" v-model="style.border.left"
+                                @change='edit.changeBorderLeft($event)'>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container_content-3" @click="contentPadding">
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)" />
+                    <p>Padding</p>
+                </div>
+                <div class="container_content-3-2">
+                    <div class="container_content-3-2--container" v-if="showPadding">
+                        <div class="container_content-3-2--content">
+                            <span>Top</span>
+                            <input type="number" name="top" min="0" max="100" v-model="style.padding.top"
+                                @change='edit.changePaddingTop($event)'>
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Right</span>
+                            <input type="number" name="right" min="0" max="100" v-model="style.padding.right"
+                                @change='edit.changePaddingRight($event)'>
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Bottom</span>
+                            <input type="number" name="bottom" min="0" max="100" v-model="style.padding.bottom"
+                                @change='edit.changePaddingBottom($event)'>
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Left</span>
+                            <input type="number" name="left" min="0" max="100" v-model="style.padding.left"
+                                @change='edit.changePaddingLeft($event)'>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container_content-3" @click="contentMargin">
+                    <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle-right.png`)" />
+                    <p>Margin</p>
+                </div>
+                <div class="container_content-3-2">
+                    <div class="container_content-3-2--container" v-if="showMargin">
+                        <div class="container_content-3-2--content">
+                            <span>Top</span>
+                            <input type="number" name="top" min="0" max="100" v-model="style.margin.top"
+                                @change='edit.changeMarginTop($event)'>
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Right</span>
+                            <input type="number" name="right" min="0" max="100" v-model="style.margin.right"
+                                @change='edit.changeMarginRight($event)'>
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Bottom</span>
+                            <input type="number" name="bottom" min="0" max="100" v-model="style.margin.bottom"
+                                @change='edit.changeMarginBottom($event)'>
+                        </div>
+                        <div class="container_content-3-2--content">
+                            <span>Left</span>
+                            <input type="number" name="left" min="0" max="100" v-model="style.margin.left"
+                                @change='edit.changeMarginLeft($event)'>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div v-if="edit.sectionEditable.height"> -->
+                    <div class="container_content-3" @click="content4V">
+                        <img class="container_content-2__icon" :src="require(`@/assets/icon/triangle.png`)" />
+                        <p>Size</p>
+                    </div>
+
+                    <div class="container_content-5" v-if="showcontent4V">
+                        <div class="content_5-1">
+                            <div class="content_5-1--t">
+                                <p>Width</p>
+                            </div>
+                            <div class="content_5-1--c">
+                                <div class="line_width">
+                                    <input id="slider" type="range" :min="min" :max="max" v-model="style.size.width"
+                                        @change='edit.changeSizeWidth($event)'>
+                                </div>
+                                <div class="nb1">
+                                    <input class="nb-i" v-model="style.size.width" maxlength="3" :min="0" :max="1000"
+                                        type="number" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="content_5-1">
+                            <div class="content_5-1--t">
+                                <p>Height</p>
+                            </div>
+                            <div class="content_5-1--c">
+                                <div class="line_width">
+                                    <input id="slider" type="range" :min="min" :max="max" v-model="style.size.height"
+                                        @change='edit.changeSizeHeight($event)'>
+                                </div>
+                                <div class="nb1">
+                                    <input class="nb-i" v-model="style.size.height" maxlength="3" :min="0" :max="1000"
+                                        type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
     </div>
-    
- </div>
+
+</div>
