@@ -21,12 +21,11 @@
 
 .body-left-2{
     width: 100%;
-    overflow: scroll;
-
+    overflow-y: scroll;
 }
 
 .body-right{
     width: 30%;
     background-color: $sombre;
-    overflow: scroll;
+    overflow-y: scroll;
 }
