@@ -6,14 +6,12 @@
                 <p> Back </p>
                 <span> Recently viewed </span>
             </div>
-            <div class=" Add">
-                
-                <p class="Add_NewText"> Add New </p>
-                <img class="Add_icone" :src="require(`@/assets/icon/Add.svg`)"/>
-
+            <div class="Add">
+                <router-link class="Add" to="Project">
+                    <p class="Add_NewText"> Add New </p>
+                    <img class="Add_icone" :src="require(`@/assets/icon/Add.svg`)"/>
+                </router-link>
             </div>
-            
-
     </div>
 
     <div class="Title">

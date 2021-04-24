@@ -2,7 +2,9 @@
 <header>
     <nav>
         <div class="header__left">
-            <img class="header_logo" src="./favicon.ico" alt="" />
+            <router-link to="/">
+                <img class="header_logo" src="./favicon.ico" alt="" />
+            </router-link>
         </div>
         <div class="header__right">
             <img class="header_logo" :src="require(`@/assets/logo/fleche_bas48.png`)" alt="" />

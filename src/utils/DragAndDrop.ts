@@ -6,7 +6,7 @@ interface Component {
     content: string | null;
     className: string | null;
     idName: string | null;
-    sectionEditable: object;
+    editStyle: object;
 }
 
 export default class DragAndDrop {

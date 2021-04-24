@@ -3,7 +3,7 @@
 @import './helpers/mixins';
 
 .Body_Home{
-
     display: flex;  
+    height: calc(100vh - 50px);
     flex-direction: row;
 }
