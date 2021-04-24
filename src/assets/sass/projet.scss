@@ -13,10 +13,20 @@
     flex-direction: row;
     width: 40%;
 }
+@media screen and (min-width: 2560px) {
+    .body-left{
+        width: 20%;
+    }
+}
+
 .body-left-2{
     width: 100%;
+    overflow: scroll;
+
 }
+
 .body-right{
     width: 30%;
     background-color: $sombre;
+    overflow: scroll;
 }
