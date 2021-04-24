@@ -1,3 +1,5 @@
+import Dom from "./Dom";
+
 export default class ToolsMenu {
     toolsMenu!: Element;
     toolDrag!: Element;
@@ -48,9 +50,10 @@ export default class ToolsMenu {
             })
     }
 
-    remove(editPreview: Element, target: Element): void {
+    remove(editPreview: Element, target: Element, dom: Dom, refsDom: Element): void {
         this.toolDelete.addEventListener("click", () => {
             editPreview.removeChild(target);
+            dom.updateDom(editPreview, refsDom);
         })
     }
 }

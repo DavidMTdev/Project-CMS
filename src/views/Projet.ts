@@ -49,16 +49,12 @@ export default class Projet extends Vue {
     mounted() {
         this.dom = new Dom();
         this.edit = new Edit();    
-        // const projectJSON = require("@/assets/json/project_1.json");
 
         for (let index = 0; index < ComponentList.length; index++) {
             this.compo.push(new DragAndDrop(ComponentList[index]));
         }
 
         this.count = 0; 
-        
-        // this.toolsMenu = new ToolsMenu();   
-        // this.toolsMenu.create();      
     }
 
     startDrag(event: DragEvent, item: DragAndDrop) {
@@ -68,18 +64,15 @@ export default class Projet extends Vue {
     onDrop(event: DragEvent) {
         this.element.createElement(event, this.count, this);
         this.element.editableElement(this);
-        // this.toolsMenu.display((this.$refs.test as Element), (this.element.element as Element))
-        // this.toolsMenu.remove((this.element.element as Element))
 
         const toolsMenu = new ToolsMenu();   
         toolsMenu.create();      
-
         toolsMenu.display((this.$refs.test as Element), (this.element.element as Element))
-        toolsMenu.remove((this.$refs.test as Element), (this.element.element as Element))
 
         this.dom.updateDom(this.$refs.test, this.$refs.dom);
         this.dom.elementDomClick(this);
-        
+
+        toolsMenu.remove((this.$refs.test as Element), (this.element.element as Element), this.dom, (this.$refs.dom as Element));
         this.count++; 
     }
 
